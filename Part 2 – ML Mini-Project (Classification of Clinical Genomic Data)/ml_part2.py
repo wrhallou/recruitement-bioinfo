@@ -22,8 +22,8 @@ from sklearn.calibration import CalibratedClassifierCV
 OUTPUT_DIR = "results"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# ---- 1) Load ----
-print(" ---- 1) Load ----")
+# ---- 0) Load ----
+print(" ---- 0) Load ----")
 df = pd.read_csv(
     "/data2/wassim_r/OutputData/test_dir/miniPrj/bioinfo/ml_dataset/ml_dataset_test.csv",
     sep=";"
@@ -37,8 +37,8 @@ snp_categorical = [f"var{i}" for i in range(1, 11)]
 X = df.drop(columns=[target_col])
 y = df[target_col]
 
-# ---- 0) Exploratory Data Analysis (EDA) ----
-print(" ---- 0) Exploratory Data Analysis ----")
+# ---- 1) Exploratory Data Analysis (EDA) ----
+print(" ---- 1) Exploratory Data Analysis ----")
 
 plt.figure()
 sns.countplot(x=target_col, data=df, palette="Set2")
