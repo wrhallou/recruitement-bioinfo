@@ -1,1 +1,1 @@
-# This public repo contains code and explanations for the technical assessment
+# This public repository contains code and explanations for the technical assessment.
