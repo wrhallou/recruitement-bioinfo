@@ -19,3 +19,5 @@
 
 - By the looks of it the linear model performed better than the decison trees, it could be because the dataset is to simple and the decison tree model increases complexity and overfits.
   
+# Next steps
+- What i would try is to compare the datasets 2 by 2, since we see in exploratory data that AD+MCI >> CN. Then maybe comparing CN+MCI to AD would give better results.
