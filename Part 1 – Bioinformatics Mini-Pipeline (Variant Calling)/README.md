@@ -8,12 +8,12 @@
 
 # Mini-Pipeline structure
 - The pipeline perfomrs QC anlaysis and trimming; then alignment on hg38 human genome reference; then extracts information about alignment like coverage, percentage of alignement; and finally marking duplcates is performed.
-- The pipeline should be compatible with most linux command lines shells.
+- The pipeline should be compatible with most linux commandline shells.
 - To run the pipeline (use full paths ) :
       nextflow run nextflow-pipeline/workflows/variant-analysis_workflow -c nextflow-pipeline/conf/base.conf -profile singularity --rawreads [path/to/rawreads/*_R{1,2}.fastq.gz] --outdir [path/to/put/dir] --hg38Ref [path/to/bowtie2/reference]
 
 # Summarry of results
-A summary of results is provided with multiQC tool. File in the main directory of part1.
+A summary of results is provided with multiQC tool. Look at file multiqc_report.html in the main directory of part1.
 
 #Description of continuig variant call analysis
 For germline calling, I’d use GATK HaplotypeCaller. If these samples were tumor/normal pairs, I’d instead use GATK Mutect2 with panel-of-normals and additional somatic filtering steps.
