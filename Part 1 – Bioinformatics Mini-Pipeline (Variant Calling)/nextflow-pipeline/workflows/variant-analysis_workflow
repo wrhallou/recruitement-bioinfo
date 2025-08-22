@@ -1,0 +1,27 @@
+nextflow.enable.dsl = 2
+
+include { fastQC } from '../module/fastqc'
+include { trimming } from '../module/trimming'
+include { alignment } from '../module/alignment'
+include { coverage } from '../module/coverage'
+include { markdup } from '../module/markduplicates'
+
+
+//params.rawreads = "/data2/wassim_r/OutputData/test_dir/miniPrj/bioinfo/fastq/*_R{1,2}.fastq.gz"
+//params.hg38Ref = ""
+//params.outdir = "/data2/wassim_r/OutputData/test_dir/miniPrj/part1/results"
+
+
+workflow {
+RawRead_ch = channel.fromFilePairs( params.rawreads, checkIfExists: true )
+
+RawRead_ch.view()
+
+fastQC(RawRead_ch)
+trimming(RawRead_ch)
+alignment(trimming.out.trimmedReads, params.hg38Ref)
+coverage(alignment.out.bamAlignment)
+markdup(alignment.out.bamAlignment)
+
+
+}
